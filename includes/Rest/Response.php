@@ -58,7 +58,7 @@ class Response implements ResponseInterface {
 	}
 
 	/** @inheritDoc */
-	public function setStatus( $code, $reasonPhrase = '' ) {
+	public function setStatus( $code, $reasonPhrase = '' ): void {
 		$this->statusCode = $code;
 		if ( $reasonPhrase === '' ) {
 			$reasonPhrase = HttpStatus::getMessage( $code ) ?? '';
@@ -67,67 +67,67 @@ class Response implements ResponseInterface {
 	}
 
 	/** @inheritDoc */
-	public function getProtocolVersion() {
+	public function getProtocolVersion(): string {
 		return $this->protocolVersion;
 	}
 
 	/** @inheritDoc */
-	public function getHeaders() {
+	public function getHeaders(): array {
 		return $this->headerContainer->getHeaders();
 	}
 
 	/** @inheritDoc */
-	public function hasHeader( $name ) {
+	public function hasHeader( $name ): bool {
 		return $this->headerContainer->hasHeader( $name );
 	}
 
 	/** @inheritDoc */
-	public function getHeader( $name ) {
+	public function getHeader( $name ): array {
 		return $this->headerContainer->getHeader( $name );
 	}
 
 	/** @inheritDoc */
-	public function getHeaderLine( $name ) {
+	public function getHeaderLine( $name ): string {
 		return $this->headerContainer->getHeaderLine( $name );
 	}
 
 	/** @inheritDoc */
-	public function getBody() {
+	public function getBody(): StreamInterface {
 		return $this->body;
 	}
 
 	/** @inheritDoc */
-	public function setProtocolVersion( $version ) {
+	public function setProtocolVersion( $version ): void {
 		$this->protocolVersion = $version;
 	}
 
 	/** @inheritDoc */
-	public function setHeader( $name, $value ) {
+	public function setHeader( $name, $value ): void {
 		$this->headerContainer->setHeader( $name, $value );
 	}
 
 	/** @inheritDoc */
-	public function addHeader( $name, $value ) {
+	public function addHeader( $name, $value ): void {
 		$this->headerContainer->addHeader( $name, $value );
 	}
 
 	/** @inheritDoc */
-	public function removeHeader( $name ) {
+	public function removeHeader( $name ): void {
 		$this->headerContainer->removeHeader( $name );
 	}
 
 	/** @inheritDoc */
-	public function setBody( StreamInterface $body ) {
+	public function setBody( StreamInterface $body ): void {
 		$this->body = $body;
 	}
 
 	/** @inheritDoc */
-	public function getRawHeaderLines() {
+	public function getRawHeaderLines(): array {
 		return $this->headerContainer->getRawHeaderLines();
 	}
 
 	/** @inheritDoc */
-	public function setCookie( $name, $value, $expire = 0, $options = [] ) {
+	public function setCookie( $name, $value, $expire = 0, $options = [] ): void {
 		$this->cookies[] = [
 			'name' => $name,
 			'value' => $value,
@@ -137,7 +137,7 @@ class Response implements ResponseInterface {
 	}
 
 	/** @inheritDoc */
-	public function getCookies() {
+	public function getCookies(): array {
 		return $this->cookies;
 	}
 }
