@@ -58,7 +58,7 @@ class StringStream implements Stringable, CopyableStreamInterface {
 	}
 
 	/** @inheritDoc */
-	public function tell() {
+	public function tell(): int {
 		return $this->offset;
 	}
 
