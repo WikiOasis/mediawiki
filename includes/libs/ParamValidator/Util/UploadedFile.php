@@ -2,6 +2,7 @@
 
 namespace Wikimedia\ParamValidator\Util;
 
+use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\UploadedFileInterface;
 use RuntimeException;
 use Wikimedia\AtEase\AtEase;
@@ -84,7 +85,7 @@ class UploadedFile implements UploadedFileInterface {
 	}
 
 	/** @inheritDoc */
-	public function getStream() {
+	public function getStream(): StreamInterface {
 		if ( $this->stream ) {
 			return $this->stream;
 		}
