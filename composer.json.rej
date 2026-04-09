@@ -1,0 +1,56 @@
+--- composer.json	2026-04-07 14:54:06.981496726 +0100
++++ composer.json	2026-04-01 13:45:22.114147200 +0100
+@@ -21,6 +21,7 @@
+ 	},
+ 	"prefer-stable": true,
+ 	"require": {
++		"composer/semver": "3.4.4",
+ 		"ext-calendar": "*",
+ 		"ext-ctype": "*",
+ 		"ext-dom": "*",
+@@ -63,7 +64,7 @@
+ 		"wikimedia/common-passwords": "0.5.1",
+ 		"wikimedia/composer-merge-plugin": "2.1.0",
+ 		"wikimedia/cssjanus": "2.3.0",
+-		"wikimedia/css-sanitizer": "6.1.0",
++		"wikimedia/css-sanitizer": "6.2.1",
+ 		"wikimedia/html-formatter": "4.1.0",
+ 		"wikimedia/ip-utils": "5.0.0",
+ 		"wikimedia/json-codec": "4.0.0",
+@@ -71,7 +72,7 @@
+ 		"wikimedia/minify": "2.9.0",
+ 		"wikimedia/normalized-exception": "2.1.1",
+ 		"wikimedia/object-factory": "5.0.1",
+-		"wikimedia/parsoid": "0.22.1",
++		"wikimedia/parsoid": "0.22.2",
+ 		"wikimedia/php-session-serializer": "3.0.2",
+ 		"wikimedia/purtle": "2.0.0",
+ 		"wikimedia/relpath": "4.0.2",
+@@ -86,12 +87,7 @@
+ 		"wikimedia/wait-condition-loop": "2.0.2",
+ 		"wikimedia/wrappedstring": "4.0.1",
+ 		"wikimedia/xmp-reader": "0.10.2",
+-		"zordius/lightncandy": "1.2.6",
+-		"open-telemetry/sdk": "^1.14",
+-		"open-telemetry/exporter-otlp": "^1.4",
+-		"open-telemetry/opentelemetry-auto-psr18": "^1.2",
+-		"open-telemetry/opentelemetry-auto-pdo": "^0.4.0",
+-		"open-telemetry/opentelemetry-auto-mysqli": "^0.4.0"
++		"zordius/lightncandy": "1.2.6"
+ 	},
+ 	"require-dev": {
+ 		"composer/spdx-licenses": "1.5.9",
+@@ -221,9 +217,10 @@
+ 		"allow-plugins": {
+ 			"wikimedia/composer-merge-plugin": true,
+ 			"composer/installers": true,
+-			"dealerdirect/phpcodesniffer-composer-installer": true,
+-			"php-http/discovery": true,
+-			"tbachert/spi": true
++			"dealerdirect/phpcodesniffer-composer-installer": true
++		},
++		"audit": {
++			"block-insecure": false
+ 		}
+ 	},
+ 	"extra": {
