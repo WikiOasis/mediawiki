@@ -53,7 +53,7 @@ class StringStream implements Stringable, CopyableStreamInterface {
 	}
 
 	/** @inheritDoc */
-	public function getSize() {
+	public function getSize(): ?int {
 		return strlen( $this->contents );
 	}
 
