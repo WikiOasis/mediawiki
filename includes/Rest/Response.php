@@ -48,7 +48,7 @@ class Response implements ResponseInterface {
 	}
 
 	/** @inheritDoc */
-	public function getStatusCode() {
+	public function getStatusCode(): int {
 		return $this->statusCode;
 	}
 

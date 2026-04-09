@@ -49,7 +49,7 @@ interface ResponseInterface {
 	 *
 	 * @return int Status code.
 	 */
-	public function getStatusCode();
+	public function getStatusCode(): int;
 
 	/**
 	 * Gets the response reason phrase associated with the status code.
