@@ -36,11 +36,11 @@ class StringStream implements Stringable, CopyableStreamInterface {
 	}
 
 	/** @inheritDoc */
-	public function copyToStream( $stream ) {
+	public function copyToStream( $stream ): void {
 		fwrite( $stream, $this->getContents() );
 	}
 
-	public function __toString() {
+	public function __toString(): string {
 		return $this->contents;
 	}
 
@@ -48,7 +48,7 @@ class StringStream implements Stringable, CopyableStreamInterface {
 	}
 
 	/** @inheritDoc */
-	public function detach() {
+	public function detach(): mixed {
 		return null;
 	}
 
@@ -63,17 +63,17 @@ class StringStream implements Stringable, CopyableStreamInterface {
 	}
 
 	/** @inheritDoc */
-	public function eof() {
+	public function eof(): bool {
 		return $this->offset >= strlen( $this->contents );
 	}
 
 	/** @inheritDoc */
-	public function isSeekable() {
+	public function isSeekable(): bool {
 		return true;
 	}
 
 	/** @inheritDoc */
-	public function seek( $offset, $whence = SEEK_SET ) {
+	public function seek( $offset, $whence = SEEK_SET ): void {
 		switch ( $whence ) {
 			case SEEK_SET:
 				$this->offset = $offset;
@@ -99,17 +99,17 @@ class StringStream implements Stringable, CopyableStreamInterface {
 	}
 
 	/** @inheritDoc */
-	public function rewind() {
+	public function rewind(): void {
 		$this->offset = 0;
 	}
 
 	/** @inheritDoc */
-	public function isWritable() {
+	public function isWritable(): bool {
 		return true;
 	}
 
 	/** @inheritDoc */
-	public function write( $string ) {
+	public function write( $string ): int {
 		if ( $this->offset === strlen( $this->contents ) ) {
 			$this->contents .= $string;
 		} else {
@@ -121,12 +121,12 @@ class StringStream implements Stringable, CopyableStreamInterface {
 	}
 
 	/** @inheritDoc */
-	public function isReadable() {
+	public function isReadable(): bool {
 		return true;
 	}
 
 	/** @inheritDoc */
-	public function read( $length ) {
+	public function read( $length ): string {
 		if ( $this->offset === 0 && $length >= strlen( $this->contents ) ) {
 			$ret = $this->contents;
 		} elseif ( $this->offset >= strlen( $this->contents ) ) {
@@ -139,7 +139,7 @@ class StringStream implements Stringable, CopyableStreamInterface {
 	}
 
 	/** @inheritDoc */
-	public function getContents() {
+	public function getContents(): string {
 		if ( $this->offset === 0 ) {
 			$ret = $this->contents;
 		} elseif ( $this->offset >= strlen( $this->contents ) ) {
@@ -152,7 +152,7 @@ class StringStream implements Stringable, CopyableStreamInterface {
 	}
 
 	/** @inheritDoc */
-	public function getMetadata( $key = null ) {
+	public function getMetadata( $key = null ): mixed {
 		return null;
 	}
 }
