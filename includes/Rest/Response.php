@@ -53,7 +53,7 @@ class Response implements ResponseInterface {
 	}
 
 	/** @inheritDoc */
-	public function getReasonPhrase() {
+	public function getReasonPhrase(): string {
 		return $this->reasonPhrase;
 	}
 
