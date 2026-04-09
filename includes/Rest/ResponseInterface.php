@@ -64,7 +64,7 @@ interface ResponseInterface {
 	 * @see http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
 	 * @return string Reason phrase; must return an empty string if none present.
 	 */
-	public function getReasonPhrase();
+	public function getReasonPhrase(): string;
 
 	// ResponseInterface mutation
 
@@ -83,7 +83,7 @@ interface ResponseInterface {
 	 *     use the defaults as suggested in the HTTP specification.
 	 * @throws \InvalidArgumentException For invalid status code arguments.
 	 */
-	public function setStatus( $code, $reasonPhrase = '' );
+	public function setStatus( $code, $reasonPhrase = '' ): void;
 
 	// MessageInterface
 
@@ -94,7 +94,7 @@ interface ResponseInterface {
 	 *
 	 * @return string HTTP protocol version.
 	 */
-	public function getProtocolVersion();
+	public function getProtocolVersion(): string;
 
 	/**
 	 * Retrieves all message header values.
@@ -121,7 +121,7 @@ interface ResponseInterface {
 	 *     Each key MUST be a header name, and each value MUST be an array of
 	 *     strings for that header.
 	 */
-	public function getHeaders();
+	public function getHeaders(): array;
 
 	/**
 	 * Checks if a header exists by the given case-insensitive name.
@@ -131,7 +131,7 @@ interface ResponseInterface {
 	 *     name using a case-insensitive string comparison. Returns false if
 	 *     no matching header name is found in the message.
 	 */
-	public function hasHeader( $name );
+	public function hasHeader( $name ): bool;
 
 	/**
 	 * Retrieves a message header value by the given case-insensitive name.
@@ -147,7 +147,7 @@ interface ResponseInterface {
 	 *    header. If the header does not appear in the message, this method MUST
 	 *    return an empty array.
 	 */
-	public function getHeader( $name );
+	public function getHeader( $name ): array;
 
 	/**
 	 * Retrieves a comma-separated string of the values for a single header.
@@ -168,14 +168,14 @@ interface ResponseInterface {
 	 *    concatenated together using a comma. If the header does not appear in
 	 *    the message, this method MUST return an empty string.
 	 */
-	public function getHeaderLine( $name );
+	public function getHeaderLine( $name ): string;
 
 	/**
 	 * Gets the body of the message.
 	 *
 	 * @return StreamInterface Returns the body as a stream.
 	 */
-	public function getBody();
+	public function getBody(): StreamInterface;
 
 	// MessageInterface mutation
 
@@ -187,7 +187,7 @@ interface ResponseInterface {
 	 *
 	 * @param string $version HTTP protocol version
 	 */
-	public function setProtocolVersion( $version );
+	public function setProtocolVersion( $version ): void;
 
 	/**
 	 * Set or replace the specified header.
@@ -199,7 +199,7 @@ interface ResponseInterface {
 	 * @param string|string[] $value Header value(s).
 	 * @throws \InvalidArgumentException for invalid header names or values.
 	 */
-	public function setHeader( $name, $value );
+	public function setHeader( $name, $value ): void;
 
 	/**
 	 * Append the given value to the specified header.
@@ -213,7 +213,7 @@ interface ResponseInterface {
 	 * @throws \InvalidArgumentException for invalid header names.
 	 * @throws \InvalidArgumentException for invalid header values.
 	 */
-	public function addHeader( $name, $value );
+	public function addHeader( $name, $value ): void;
 
 	/**
 	 * Remove the specified header.
@@ -222,7 +222,7 @@ interface ResponseInterface {
 	 *
 	 * @param string $name Case-insensitive header field name to remove.
 	 */
-	public function removeHeader( $name );
+	public function removeHeader( $name ): void;
 
 	/**
 	 * Set the message body
@@ -232,7 +232,7 @@ interface ResponseInterface {
 	 * @param StreamInterface $body
 	 * @throws \InvalidArgumentException When the body is not valid.
 	 */
-	public function setBody( StreamInterface $body );
+	public function setBody( StreamInterface $body ): void;
 
 	// MediaWiki extensions to PSR-7
 
@@ -242,7 +242,7 @@ interface ResponseInterface {
 	 *
 	 * @return string[]
 	 */
-	public function getRawHeaderLines();
+	public function getRawHeaderLines(): array;
 
 	/**
 	 * Set a cookie
@@ -262,7 +262,7 @@ interface ResponseInterface {
 	 *     secure: bool, secure attribute ($wgCookieSecure)
 	 *     httpOnly: bool, httpOnly attribute ($wgCookieHttpOnly)
 	 */
-	public function setCookie( $name, $value, $expire = 0, $options = [] );
+	public function setCookie( $name, $value, $expire = 0, $options = [] ): void;
 
 	/**
 	 * Get all previously set cookies as a list of associative arrays with
@@ -276,5 +276,5 @@ interface ResponseInterface {
 	 * @return array
 	 * @phan-return array{name:string,value:mixed,expire:int,options:array}
 	 */
-	public function getCookies();
+	public function getCookies(): array;
 }
