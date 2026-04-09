@@ -44,7 +44,7 @@ class StringStream implements Stringable, CopyableStreamInterface {
 		return $this->contents;
 	}
 
-	public function close() {
+	public function close(): void {
 	}
 
 	/** @inheritDoc */
