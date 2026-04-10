@@ -96,7 +96,7 @@ class UploadedFile implements UploadedFileInterface {
 	}
 
 	/** @inheritDoc */
-	public function moveTo( $targetPath ) {
+	public function moveTo( string $targetPath ): void {
 		$this->checkError();
 
 		if ( $this->fromUpload && !is_uploaded_file( $this->data['tmp_name'] ) ) {
@@ -122,23 +122,23 @@ class UploadedFile implements UploadedFileInterface {
 	}
 
 	/** @inheritDoc */
-	public function getSize() {
+	public function getSize(): ?int {
 		return $this->data['size'] ?? null;
 	}
 
 	/** @inheritDoc */
-	public function getError() {
+	public function getError(): int {
 		return $this->data['error'] ?? UPLOAD_ERR_NO_FILE;
 	}
 
 	/** @inheritDoc */
-	public function getClientFilename() {
+	public function getClientFilename(): ?string {
 		$ret = $this->data['name'] ?? null;
 		return $ret === '' ? null : $ret;
 	}
 
 	/** @inheritDoc */
-	public function getClientMediaType() {
+	public function getClientMediaType(): ?string {
 		$ret = $this->data['type'] ?? null;
 		return $ret === '' ? null : $ret;
 	}
