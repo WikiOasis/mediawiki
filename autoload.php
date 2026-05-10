@@ -2524,6 +2524,7 @@ $wgAutoloadLocalClasses = [
 	'MediaWiki\\ResourceLoader\\SiteModule' => __DIR__ . '/includes/ResourceLoader/SiteModule.php',
 	'MediaWiki\\ResourceLoader\\SiteStylesModule' => __DIR__ . '/includes/ResourceLoader/SiteStylesModule.php',
 	'MediaWiki\\ResourceLoader\\SkinModule' => __DIR__ . '/includes/ResourceLoader/SkinModule.php',
+	'ResourceLoaderSkinModule' => __DIR__ . '/includes/ResourceLoader/SkinModule.php',
 	'MediaWiki\\ResourceLoader\\StartUpModule' => __DIR__ . '/includes/ResourceLoader/StartUpModule.php',
 	'MediaWiki\\ResourceLoader\\UserModule' => __DIR__ . '/includes/ResourceLoader/UserModule.php',
 	'MediaWiki\\ResourceLoader\\UserOptionsModule' => __DIR__ . '/includes/ResourceLoader/UserOptionsModule.php',

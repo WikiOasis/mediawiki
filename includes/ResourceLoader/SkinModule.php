@@ -763,3 +763,6 @@ class SkinModule extends LessVarFileModule {
 		return $summary;
 	}
 }
+
+/** @deprecated class alias since 1.40 */
+class_alias( SkinModule::class, 'ResourceLoaderSkinModule' );
